@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: artemis-config
+  namespace: artemis-dev
+data:
+  artemis.conf: |-
+    broker-url=tcp://localhost:61616
+    queue-name=exampleQueue

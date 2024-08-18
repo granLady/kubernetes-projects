@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: artemis-dev-pv
+spec:
+  capacity:
+    storage: 4Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: nfs-csi
+  nfs:
+    path: /var/nfs/k8s_pvs
+    server: 10.0.0.10
+
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: artemis-dev-pvc
+  namespace: artemis-dev
+spec:
+  storageClassName: nfs-csi
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 4Gi
+
