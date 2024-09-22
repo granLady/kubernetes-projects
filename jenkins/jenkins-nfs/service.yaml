@@ -11,8 +11,8 @@ metadata:
 spec:
   selector:
     app: server-jenkins
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 8080
     targetPort: 8080
-    nodePort: 32000
+    nodePort: 30001
