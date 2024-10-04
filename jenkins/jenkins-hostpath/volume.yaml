@@ -37,9 +37,10 @@ metadata:
   name: jenkins-pv-claim
   namespace: jenkins
 spec:
+  volumeName: jenkins-pv-volume
   storageClassName: local-storage
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
+      storage: 10Gi
