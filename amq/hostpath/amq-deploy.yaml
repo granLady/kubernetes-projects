@@ -21,6 +21,13 @@ spec:
         - name: artemis-config
           mountPath: /var/lib/artemis/etc/artemis.conf
           subPath: artemis.conf
+        resources:
+          requests:
+            memory: "512M"
+            cpu: "250m"
+          limits:
+             memory: "1024M"
+             cpu: "500m"
       volumes:
       - name: artemis-data
         persistentVolumeClaim:
