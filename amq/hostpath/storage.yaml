@@ -7,7 +7,7 @@ spec:
     storage: 4Gi
   volumeMode: Filesystem
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   hostPath:
@@ -21,8 +21,9 @@ metadata:
   namespace: artemis-dev
 spec:
   storageClassName: local-storage
+  persistentVolumeReclaimPolicy: Retain
   accessModes:
-  - Retain
+  - ReadWriteOnce
   resources:
     requests:
       storage: 4Gi

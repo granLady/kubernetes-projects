@@ -2,9 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   namespace: artemis-dev
-  generateName: cleanup-after-sync-
-  labels:
-    codefresh.io/cert: cleanup-job-webhook
+  generateName: Post-Sync-job-
   annotations:
       argocd.argoproj.io/hook: PostSync
 spec:
@@ -12,9 +10,7 @@ spec:
     spec:
       containers:
       - name: dummy-run
-        image: alpine
-        command:
-          - "sleep"
-          - "40"
+        image: ubuntu
+        command: ["echo", "hola dani"]
       restartPolicy: Never
   backoffLimit: 2   
