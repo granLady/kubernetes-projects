@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artemis
+  namespace: artemis-dev
+spec:
+  selector:
+    matchLabels:
+      app: artemis-dev
+  template:
+    metadata:
+      labels:
+        app: artemis-dev
+    spec:
+      containers:
+      - name: artemis
+        image: apache/activemq-artemis
+        volumeMounts:
+        - name: artemis-data
+          mountPath: /var/lib/artemis/data
+        - name: artemis-config
+          mountPath: /var/lib/artemis/etc/artemis.conf
+          subPath: artemis.conf
+      volumes:
+      - name: artemis-data
+        persistentVolumeClaim:
+          claimName: artemis-dev-pvc
+      - name: artemis-config
+        configMap:
+          name: artemis-config
