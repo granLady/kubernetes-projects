@@ -4,7 +4,7 @@ metadata:
   namespace: artemis-dev
   generateName: cleanup-after-sync-
   labels:
-    codefresh.io/cert: cleanup-job
+    codefresh.io/cert: cleanup-job-webhook
   annotations:
       argocd.argoproj.io/hook: PostSync
 spec:
