@@ -2,15 +2,15 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   namespace: artemis-dev
-  generateName: Post-Sync-job-
+  generateName: health-check-
   annotations:
-      argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
       containers:
-      - name: dummy-run
-        image: ubuntu
-        command: ["echo", "hola dani"]
+      - name: health-check
+        image: busybox
+        command: ["sh", "-c", "echo 'Realizando verificación de salud'; sleep 30; echo 'Verificación completada'"]
       restartPolicy: Never
-  backoffLimit: 2   
