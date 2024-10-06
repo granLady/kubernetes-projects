@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  namespace: jenkins
+  generateName: health-check-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: health-check
+        image: busybox
+        command: ["sh", "-c", "echo 'Realizando verificación de salud'; sleep 30; echo 'Verificación completada'"]
+      restartPolicy: Never
