@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 5 # Update the replica count to 5
+  template:
+    spec:
+      containers:
+        - name: nginx
+          image: ttl.sh/my-prod-app:1d # Overriding the image
+          ports:
+            - containerPort: 80
