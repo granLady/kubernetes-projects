@@ -1,10 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: nginx-prod
 resources:
   - ../../base
 patchesStrategicMerge:
-  - deployment-prod.yaml
-namePrefix: prod-
-namespace: prod
+  - nginx-deployment-prod.yaml
+nameSuffix: "-prod"
 commonLabels:
   env: prod
+  app: nginx-prod

@@ -1,10 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: nginx-dev
 resources:
   - ../../base
 patchesStrategicMerge:
-  - deployment-dev.yaml
-namePrefix: dev-
-namespace: dev
+  - nginx-deployment-dev.yaml
+nameSuffix: "-dev"
 commonLabels:
   env: dev
+  app: nginx-dev

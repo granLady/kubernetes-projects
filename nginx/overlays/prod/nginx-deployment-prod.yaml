@@ -1,13 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: nginx
 spec:
-  replicas: 5 # Update the replica count to 5
+  replicas: 3 # Update the replica count to 3
   template:
     spec:
       containers:
         - name: nginx
           image: nginx
-          ports:
-            - containerPort: 80
