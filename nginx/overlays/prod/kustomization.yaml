@@ -7,4 +7,4 @@ patchesStrategicMerge:
 namePrefix: prod-
 namespace: prod
 commonLabels:
-  app: prod
+  env: prod

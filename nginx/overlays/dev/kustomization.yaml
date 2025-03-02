@@ -7,4 +7,4 @@ patchesStrategicMerge:
 namePrefix: dev-
 namespace: dev
 commonLabels:
-  app: dev
+  env: dev

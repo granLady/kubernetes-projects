@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-      - name: nginx
-        image: ttl.sh/my-dev-app:1d # Overriding the image
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 8080
