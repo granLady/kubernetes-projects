@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+namespace: dcm-selenium-pro  # Namespace para el entorno de producción
+nameSuffix: "-prod"
+patches:
+  - target:
+      kind: Ingress
+      name: docker-selenium-selenium-ingress
+    patch: |-
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        name: dcm-ingress-selenium-pro
+        namespace: dcm-selenium-pro
+      spec:
+        rules:
+          - host: selenium-pro.daniela.net  # Ajusta el host para el entorno de producción
+            http:
+              paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: docker-selenium-selenium-hub
+                      port:
+                        number: 4444
