@@ -31,10 +31,10 @@ kind: Service
 metadata:
   name: selenium-hub
 spec:
+  type: LoadBalancer
   selector:
     app: selenium
     component: hub
   ports:
     - port: 4444
       targetPort: 4444
-  clusterIP: None

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-node
+spec:
+  template:
+    spec:
+      containers:
+      - name: selenium-node
+        image: selenium/node-chrome:4.0.0-20220113
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "1"
+        env:
+        - name: HUB_HOST
+          value: "selenium-hub"
+        - name: HUB_PORT
+          value: "4444"
+      - name: selenium-node
+        image: selenium/node-opera:4.0.0-20220113
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "1"

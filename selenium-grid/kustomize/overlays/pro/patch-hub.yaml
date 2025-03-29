@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-hub
+spec:
+  template:
+    spec:
+      containers:
+      - name: selenium-hub
+        image: selenium/hub:4.0.0-20220113

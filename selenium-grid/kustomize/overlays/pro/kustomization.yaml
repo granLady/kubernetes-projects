@@ -1,0 +1,6 @@
+namespace: selenium-pro
+bases:
+  - ../../base
+patchesStrategicMerge:
+  - patch-node.yaml
+  - patch-hub.yaml

@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-node
+spec:
+  template:
+    spec:
+      containers:
+      - name: selenium-node
+        image: selenium/node-firefox:4.0.0-20220113
