@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-chrome
+spec:
+  replicas: 2  # Menos réplicas en desarrollo
+  template:
+    spec:
+      containers:
+        - name: selenium-chrome
+          env:
+            - name: GRID_TIMEOUT
+              value: "30000"  # Timeout más corto para desarrollo
