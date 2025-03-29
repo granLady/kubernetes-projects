@@ -3,8 +3,12 @@ kind: Deployment
 metadata:
   name: selenium-hub
 spec:
+  replicas: 2
   template:
     spec:
       containers:
       - name: selenium-hub
         image: selenium/hub
+        env:
+        - name: GRID_TIMEOUT
+          value: "120000"  # Timeout más largo para producción

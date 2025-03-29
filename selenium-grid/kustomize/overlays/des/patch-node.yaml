@@ -6,5 +6,5 @@ spec:
   template:
     spec:
       containers:
-      - name: selenium-node
-        image: selenium/node-edge
+        - name: selenium-node
+          image: selenium/standalone-edge

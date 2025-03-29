@@ -6,5 +6,5 @@ spec:
   template:
     spec:
       containers:
-      - name: selenium-node
-        image: selenium/node-firefox
+        - name: selenium-chrome
+          value: "60000" # Timeout ajustado para pre-producción

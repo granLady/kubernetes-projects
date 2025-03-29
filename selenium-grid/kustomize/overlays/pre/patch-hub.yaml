@@ -6,5 +6,8 @@ spec:
   template:
     spec:
       containers:
-      - name: selenium-hub
-        image: selenium/hub
+        - name: selenium-hub
+          image: selenium/hub
+          env:
+            - name: GRID_TIMEOUT
+              value: "60000" # Timeout más corto para pre-producción

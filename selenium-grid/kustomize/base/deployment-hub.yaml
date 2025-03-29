@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: selenium-hub
+  labels:
+    app: selenium-hub
 spec:
   replicas: 1
   selector:
@@ -15,8 +17,12 @@ spec:
       containers:
       - name: selenium-hub
         image: selenium/hub
+        imagePullPolicy: Always
         ports:
         - containerPort: 4444
+        env:
+        - name: HUB_PORT_4444_TCP_ADDR
+          value: selenium-hub
 ---
 apiVersion: v1
 kind: Service
