@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
       - name: selenium-hub
-        image: selenium/hub:4.0.0-20220113
+        image: selenium/hub
