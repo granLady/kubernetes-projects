@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-hub
+  labels:
+    app: selenium
+    component: hub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: selenium
+      component: hub
+  template:
+    metadata:
+      labels:
+        app: selenium
+        component: hub
+    spec:
+      containers:
+        - name: selenium-hub
+          image: selenium/standalone-hub:latest
+          ports:
+            - containerPort: 4444
+          env:
+            - name: HUB_PORT_4444_TCP_ADDR
+              value: selenium-hub
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: selenium-hub
+spec:
+  selector:
+    app: selenium
+    component: hub
+  ports:
+    - port: 4444
+      targetPort: 4444
+  clusterIP: None

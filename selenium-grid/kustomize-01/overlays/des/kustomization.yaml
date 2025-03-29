@@ -1,0 +1,12 @@
+bases:
+  - ../../base
+
+namespace: selenium-des
+namePrefix: des-
+
+patchesStrategicMerge:
+  - patch-hub-des.yaml
+  - patch-node-des.yaml
+
+
+

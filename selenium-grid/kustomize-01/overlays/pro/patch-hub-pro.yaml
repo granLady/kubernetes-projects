@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-hub
+spec:
+  replicas: 3  # Más réplicas en producción
+  template:
+    spec:
+      containers:
+        - name: selenium-hub
+          env:
+            - name: GRID_TIMEOUT
+              value: "120000"  # Timeout más largo para producción

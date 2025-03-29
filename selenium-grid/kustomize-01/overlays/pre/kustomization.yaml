@@ -1,0 +1,9 @@
+bases:
+  - ../../base
+
+namespace: selenium-pre
+namePrefix: pre-
+
+patchesStrategicMerge:
+  - patch-hub-pre.yaml
+  - patch-node-pre.yaml

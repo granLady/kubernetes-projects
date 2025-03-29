@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-hub
+spec:
+  template:
+    spec:
+      containers:
+        - name: selenium-hub
+          env:
+            - name: GRID_TIMEOUT
+              value: "60000"  # Timeout más corto para pre-producción
