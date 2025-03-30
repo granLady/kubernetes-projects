@@ -1,6 +1,5 @@
 namespace: selenium-des
-namePrefix: des-
-nameSuffix: "des"
+nameSuffix: "-des"
 bases:
   - ../../base
 patchesStrategicMerge:

@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: selenium-node
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: selenium-node
@@ -15,12 +14,10 @@ spec:
     spec:
       containers:
         - name: selenium-node
-          image: selenium/standalone-chrome
+          image: selenium/standalone-chrome:latest
           env:
             - name: HUB_HOST
               value: "selenium-hub"
-            - name: HUB_PORT
-              value: "4444"
           ports:
             - containerPort: 4444
 ---

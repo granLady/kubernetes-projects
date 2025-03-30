@@ -6,5 +6,9 @@ spec:
   template:
     spec:
       containers:
-        - name: selenium-chrome
-          value: "60000" # Timeout ajustado para pre-producción
+      - name: selenium-node
+        image: selenium/standalone-firefox
+        env:
+        - name: GRID_TIMEOUT
+          value: "60000"
+

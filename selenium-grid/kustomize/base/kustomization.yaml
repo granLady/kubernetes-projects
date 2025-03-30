@@ -1,6 +1,5 @@
 resources:
   - deployment-hub.yaml
   - deployment-node.yaml
-  - service.yaml
 commonLabels:
   owner: daniela

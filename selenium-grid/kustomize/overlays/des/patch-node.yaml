@@ -7,4 +7,6 @@ spec:
     spec:
       containers:
         - name: selenium-node
-          image: selenium/standalone-edge
+          env:
+            - name: GRID_TIMEOUT
+              value: "30000" # Timeout más corto para desarrollo

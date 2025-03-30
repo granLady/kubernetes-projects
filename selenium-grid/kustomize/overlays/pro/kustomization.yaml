@@ -1,5 +1,5 @@
 namespace: selenium-pro
-namePrefix: pro-
+nameSuffix: "-pro"
 bases:
   - ../../base
 patchesStrategicMerge:

@@ -19,7 +19,8 @@ spec:
     spec:
       containers:
         - name: selenium-hub
-          image: selenium/standalone-hub:latest
+          image: selenium/hub
+          imagePullPolicy: Always
           ports:
             - containerPort: 4444
           env:
