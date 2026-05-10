@@ -3,22 +3,22 @@ kind: PersistentVolume
 metadata:
   labels:
     app.kubernetes.io/instance: jenkins
-  name: pv-jenkins
+  name: pv-nfs-02
 spec:
   accessModes:
     - ReadWriteMany
   capacity:
     storage: 10Gi
   nfs:
-    path: /home/vagrant/nfs-vol/
-    server: 10.0.0.10
-  storageClassName: nfs-csi
+    path: /run/media/dani/DATOS/k8s-storage/disco2
+    server: 192.168.121.1
+  storageClassName: nfs-lento
   volumeMode: Filesystem
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-jenkins
+  name: pvc-nfs-02
   namespace: jenkins
 spec:
   storageClassName: nfs-csi
@@ -26,4 +26,4 @@ spec:
   - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi
+      storage: 8Gi

@@ -7,7 +7,6 @@ metadata:
     prometheus.io/scrape: 'true'
     prometheus.io/path: /
     prometheus.io/port: '8080'
-    metallb.universe.tf/ip-allocated-from-pool: pool
 spec:
   selector:
     app: server-jenkins
@@ -15,4 +14,4 @@ spec:
   ports:
   - port: 8080
     targetPort: 8080
-    nodePort: 30001
+    nodePort: 32000
