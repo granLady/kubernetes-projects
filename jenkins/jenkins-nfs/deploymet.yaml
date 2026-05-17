@@ -56,4 +56,4 @@ spec:
       volumes:
       - name: data-jenkins
         persistentVolumeClaim:
-          claimName: pvc-nfs-02
+          claimName: pvc-jenkins
